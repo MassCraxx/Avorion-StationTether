@@ -1,5 +1,5 @@
 -- Station Tether by MassCraxx 
--- v1
+-- v1.1
 package.path = package.path .. ";data/scripts/systems/?.lua"
 package.path = package.path .. ";data/scripts/lib/?.lua"
 require ("basesystem")
@@ -71,7 +71,7 @@ function onShipChanged(playerIndex, craftId)
     -- if new craft already tethered, add status icon
     if tetheredEntities[craftId.value] then
         tetheredID = craftId
-        addShipProblem("Station Tether", tetheredID, "Tethered by station "..Entity().name, "data/textures/icons/bolt-shield.png", ColorRGB(0, 1, 1))
+        addShipProblem("Station Tether", tetheredID, "Tethered by station "..Entity().name, "data/textures/icons/alliance.png", ColorRGB(0, 1, 1))
     end
 end
 
