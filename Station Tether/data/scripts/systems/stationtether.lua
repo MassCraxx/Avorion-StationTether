@@ -455,8 +455,11 @@ end
 
 function getPrice(seed, rarity)
     local level, range = getBonuses(seed, rarity)
+    range = math.min(range, 1000);
 
-    return (range^4) / 3000
+    local price = range * 50 + (rarity.value + 1) * 7500;
+
+    return (price * 2.5 ^ rarity.value) * 2
 end
 
 function getTooltipLines(seed, rarity, permanent)
