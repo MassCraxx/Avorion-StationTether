@@ -358,10 +358,10 @@ function canTether(permanent, entity)
     if EnergySystem(entity.id).consumableEnergy == 0 then
         msg = msg.." Insufficient energy."
         return false, msg
-    elseif not entity.isStation then
-        msg = msg.." Only works on stations."
-    elseif not permanent then
-        msg = msg.." Needs to be installed permanently."
+    --elseif not entity.isStation then
+        --msg = msg.." Only works on stations."
+    --elseif not permanent then
+       -- msg = msg.." Needs to be installed permanently."
     else
         return true, "Tether is active on "..entity.name
     end

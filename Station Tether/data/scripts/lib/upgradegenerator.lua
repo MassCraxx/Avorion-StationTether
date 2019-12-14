@@ -1,1 +1,1 @@
-UpgradeGenerator.add("data/scripts/systems/stationtether.lua", 0.5)
+add("data/scripts/systems/stationtether.lua", 0.5)
