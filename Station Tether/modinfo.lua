@@ -13,6 +13,9 @@ meta =
     -- Title of your mod that will be displayed to players
     title = "Station Tether Upgrade",
 
+    -- Type of your mod, either "mod" or "factionpack"
+    type = "mod",
+
     -- Description of your mod that will be displayed to players
     description = "Adds the Station Tether Upgrade to the game.",
 
@@ -21,7 +24,7 @@ meta =
 
     -- Version of your mod, should be in format 1.0.0 (major.minor.patch) or 1.0 (major.minor)
     -- This will be used to check for unmet dependencies or incompatibilities
-    version = "1.2",
+    version = "1.3",
 
     -- If your mod requires dependencies, enter them here. The game will check that all dependencies given here are met.
     -- Possible attributes:

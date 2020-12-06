@@ -1,0 +1,76 @@
+# Chinese translation by Maxadam
+
+msgid "Station Tether Problem"
+msgstr "空间站停靠问题"
+
+msgid "Station Tether"
+msgstr "空间站停靠"
+
+msgid "Tethered by station "
+msgstr "停靠于空间站"
+
+msgid "Tethered entity not found!"
+msgstr "未找到停靠实体"
+
+msgid ". Ship "
+msgstr "。舰船"
+
+msgid "Slowing down ship at "
+msgstr "降速到"
+
+msgid "Tether uninstalled. Was active "
+msgstr "停靠系统未安装，手动停靠"
+
+msgid "Attempt to tether invalid entity"
+msgstr "尝试停靠非法实体"
+
+msgid "Made "
+msgstr "使"
+
+msgid " invincible."
+msgstr "处于无敌状态"
+
+msgid "Tethered "
+msgstr "停靠的"
+
+msgid " vincible."
+msgstr "处于常规状态"
+
+msgid "Untethered "
+msgstr "未停靠的"
+
+msgid "Tethered player left sector. Untethering "
+msgstr "停靠的舰船离开了区域，停止停靠"
+
+msgid "Tether is not active on "
+msgstr "停靠系统未激活于"
+
+msgid " Insufficient energy."
+msgstr "能量不足"
+
+msgid " Only works on stations."
+msgstr "仅运行于空间站"
+
+msgid " Needs to be installed permanently."
+msgstr "需要永久安装"
+
+msgid "Tether is active on "
+msgstr "停靠系统已激活于"
+
+msgid "Tether is not active!"
+msgstr "停靠系统未激活"
+
+msgid " of Doom"
+msgstr "被摧毁"
+
+msgid "Tether Range"
+msgstr "停靠距离"
+
+msgid "Sector"
+msgstr "扇区"
+
+msgid "When permanently installed on a station, tethers"
+msgstr "当永久安装于空间站时，牵引"
+
+msgid "nearby alliance ships to shield their hull damage "
+msgstr "附近的联盟舰船并保护它们不受伤害"

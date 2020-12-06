@@ -1,5 +1,5 @@
 -- Station Tether by MassCraxx 
--- v1.2
+-- v1.3
 package.path = package.path .. ";data/scripts/systems/?.lua"
 package.path = package.path .. ";data/scripts/lib/?.lua"
 require ("basesystem")
@@ -33,7 +33,7 @@ function onInstalled(seed, rarity, permanent)
     if not debug and not active then 
         if not problemID then
             problemID = Entity().id
-            addShipProblem("Station Tether Problem", problemID, msg, "data/textures/icons/hazard-sign.png", ColorRGB(1, 0, 0))
+            addShipProblem("Station Tether Problem"%_t, problemID, msg, "data/textures/icons/hazard-sign.png", ColorRGB(1, 0, 0))
         end
     end
 end
@@ -53,7 +53,7 @@ function releaseTether(active)
         
     else
         if problemID then
-            removeShipProblem("Station Tether Problem", problemID)
+            removeShipProblem("Station Tether Problem"%_t, problemID)
             problemID = nil
         end
     end
@@ -64,14 +64,14 @@ callable(nil,"releaseTether")
 function onShipChanged(playerIndex, craftId) 
     -- remove old status icon, not sure if necessary
     if tetheredID then
-        removeShipProblem("Station Tether", tetheredID)
+        removeShipProblem("Station Tether"%_t, tetheredID)
         tetheredID = nil
     end
     
     -- if new craft already tethered, add status icon
     if tetheredEntities[craftId.value] then
         tetheredID = craftId
-        addShipProblem("Station Tether", tetheredID, "Tethered by station "..Entity().name, "data/textures/icons/alliance.png", ColorRGB(0, 1, 1))
+        addShipProblem("Station Tether"%_t, tetheredID, "Tethered by station "%_t..Entity().name, "data/textures/icons/alliance.png", ColorRGB(0, 1, 1))
     end
 end
 
@@ -98,13 +98,13 @@ function onEntityTethered(entityID)
             tetheredEntities[entityID.value] = {id = entityID, entity = entity, laser = newLaser}
         end
     else
-        print("Tethered entity not found!")
+        print("Tethered entity not found!"%_t)
     end
     
     -- if tethered entity is own craft, add status icon
     if entityID == Player().craft.id and tetheredID == nil then
         tetheredID = entityID
-        addShipProblem("Station Tether", tetheredID, "Tethered by station "..Entity().name..". Ship ", "data/textures/icons/alliance.png", ColorRGB(0, 1, 1))
+        addShipProblem("Station Tether"%_t, tetheredID, "Tethered by station "%_t..Entity().name..". Ship "%_t, "data/textures/icons/alliance.png", ColorRGB(0, 1, 1))
     end
 end
 callable(nil,"onEntityTethered")
@@ -121,7 +121,7 @@ function onEntityUntethered(entityID)
 
     -- if untethered is own ship, remove status icon
     if entityID == tetheredID then
-        removeShipProblem("Station Tether", entityID)
+        removeShipProblem("Station Tether"%_t, entityID)
         tetheredID = nil
     end
 end
@@ -168,7 +168,7 @@ function update()
             -- speed ^ (1 - 0.05x)
             stoppingFactor = stoppingFactor - 0.05
             Velocity(Player().craft.id).velocity =  Velocity(Player().craft.id).velocity * stoppingFactor
-            print("Slowing down ship at "..speed.."m/s")
+            print("Slowing down ship at "%_t..speed.."m/s")
         else
             -- else reset stopping factor
             if stoppingFactor < 1 then
@@ -213,7 +213,7 @@ function initTether()
 end
 
 function onUninstalled(seed, rarity, permanent)
-    releaseTether("Tether uninstalled. Was active "..tostring(active))
+    releaseTether("Tether uninstalled. Was active "%_t..tostring(active))
 end
 
 function releaseTether(msg)
@@ -235,7 +235,7 @@ end
 
 function tetherEntity(entity)
     if not valid(entity) then
-        print("Attempt to tether invalid entity")
+        print("Attempt to tether invalid entity"%_t)
         return
     end
 
@@ -243,9 +243,9 @@ function tetherEntity(entity)
     tetheredShips[entity.id.value] = {id = entity.id, name = name, entity = entity}
     entity.invincible = makeTetheredInvincible
     if entity.invincible then
-        print("Made "..name.." invincible.")
+        print("Made "%_t..name.." invincible."%_t)
     else
-        print("Tethered ".. name)
+        print("Tethered "%_t.. name)
     end
 
     broadcastInvokeClientFunction("onEntityTethered", entity.id)
@@ -255,9 +255,9 @@ function untetherEntity(entityID)
     local entity = tetheredShips[entityID.value].entity
     if makeTetheredInvincible and valid(entity) then
         entity.invincible = false
-        print("Made "..tetheredShips[entityID.value].name.." vincible.")
+        print("Made "%_t..tetheredShips[entityID.value].name.." vincible."%_t)
     else
-        print("Untethered "..tetheredShips[entityID.value].name)
+        print("Untethered "%_t..tetheredShips[entityID.value].name)
     end
     tetheredShips[entityID.value] = nil
     broadcastInvokeClientFunction("onEntityUntethered", entityID)
@@ -280,7 +280,7 @@ function onPlayerLeft(playerIndex)
             if craft.invincible then
                 craft.invincible = false
             end
-            print("Tethered player left sector. Untethering "..craft.name)
+            print("Tethered player left sector. Untethering "%_t..craft.name)
             untetherEntity(craft.id)
         end
     else
@@ -354,20 +354,20 @@ end
 ---------------------
 
 function canTether(permanent, entity)
-    local msg = "Tether is not active on "..entity.name.."!"
+    local msg = "Tether is not active on "%_t..entity.name.."!"%_t
     if EnergySystem(entity.id).consumableEnergy == 0 then
-        msg = msg.." Insufficient energy."
+        msg = msg.." Insufficient energy."%_t
         return false, msg
     elseif not entity.isStation then
-        msg = msg.." Only works on stations."
+        msg = msg.." Only works on stations."%_t
     elseif not permanent then
-        msg = msg.." Needs to be installed permanently."
+        msg = msg.." Needs to be installed permanently."%_t
     else
-        return true, "Tether is active on "..entity.name
+        return true, "Tether is active on "%_t..entity.name
     end
 
     if debug then
-        return true, "Tether is active in debug mode on "..entity.name
+        return true, "Tether is active in debug mode on "%_t..entity.name
     end
 
     return false, msg
@@ -399,11 +399,11 @@ end
 
 -- Deprecated
 function getErrorMsg(permanent, isStation)
-    local msg = "Tether is not active!"
+    local msg = "Tether is not active!"%_t
     if not isStation then
-        msg = msg.." Only works on stations."
+        msg = msg.." Only works on stations."%_t
     elseif not permanent then
-        msg = msg.." Needs to installed permanently."
+        msg = msg.." Needs to be installed permanently."%_t
     end
     return msg
 end
@@ -436,9 +436,9 @@ end
 
 function getName(seed, rarity)
     local level, range = getBonuses(seed, rarity)
-    local name = "Station Tether"
+    local name = "Station Tether"%_t
     if range > 450 then
-        name = name.." of Doom"
+        name = name.." of Doom"%_t
     end
     return name
 end

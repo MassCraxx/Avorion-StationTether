@@ -1,0 +1,88 @@
+
+msgid "Station Tether Problem"
+msgstr "Station Tether Problem"
+
+msgid "Station Tether"
+msgstr "Station Tether"
+
+msgid "Tethered by station "
+msgstr "Angebunden an Station "
+
+# debug print
+msgid "Tethered entity not found!"
+msgstr ""
+
+msgid ". Ship "
+msgstr ". Schiff "
+
+# debug print
+msgid "Slowing down ship at "
+msgstr ""
+
+# debug print
+msgid "Tether uninstalled. Was active "
+msgstr ""
+
+# debug print
+msgid "Attempt to tether invalid entity"
+msgstr ""
+
+# debug print
+msgid "Made "
+msgstr ""
+
+# debug print
+msgid " invincible."
+msgstr ""
+
+#debug print
+msgid "Tethered "
+msgstr ""
+
+#debug print
+msgid " vincible."
+msgstr ""
+
+#debug print
+msgid "Untethered "
+msgstr ""
+
+#debug print
+msgid "Tethered player left sector. Untethering "
+msgstr ""
+
+msgid "Tether is not active on "
+msgstr "Tether ist nicht aktiv auf "
+
+msgid " Insufficient energy."
+msgstr " Nicht genug Energie."
+
+msgid " Only works on stations."
+msgstr " Funktioniert nur auf Stationen."
+
+msgid " Needs to be installed permanently."
+msgstr " Muss fest installiert werden."
+
+#debug print
+msgid "Tether is active on "
+msgstr "Tether ist aktiv auf "
+
+msgid "Tether is not active!"
+msgstr "Tether ist nicht aktiv!"
+
+msgid " of Doom"
+msgstr " des Todes"
+
+msgid "Tether Range"
+msgstr "Tether Reichweite"
+
+msgid "Sector"
+msgstr "Sektor"
+
+msgid "When permanently installed on a station, tethers"
+msgstr "Bindet freundliche Schiffe in Reichweite an eine Station"
+
+msgid "nearby alliance ships to shield their hull damage."
+msgstr "und schützt sie vor jeglichem Hüllenschaden. (Nur fest)"
+
+
